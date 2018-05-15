@@ -4,13 +4,20 @@ export default class ResetBtn extends React.Component{
 
     constructor(props){
         super();
-        this.state = {
-            isEnabled:props.btnIsStarted
-        }
+        //this.btnIsStarted = props.btnIsStarted;
+
+            this.isEnabled = props.btnIsStarted
+
     }
+
+    componentWillReceiveProps(nextProps)
+    {
+       this.isEnabled = nextProps.btnIsStarted
+    }
+
+
     render() {
-        alert(this.state.isEnable)
-        if (this.state.isEnabled) {
+        if (this.isEnabled) {
             return <div><button>Enabled</button> <button>Disabled</button></div>
         } else {
             return <div><button>Disabled</button> <button>Enabled</button></div>

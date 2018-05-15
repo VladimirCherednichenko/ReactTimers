@@ -62,6 +62,10 @@ export default class TimerEx extends Component {
     }
 
     tick = () => {
+        if (this.state.seconds == 0)
+        {
+            this.callBackBtnStop()
+        }
         this.setState({seconds:this.state.seconds - 1})
         this.myRef.current.value = this.convertToNFormat(this.state.seconds);
         console.log(this.state.seconds)
